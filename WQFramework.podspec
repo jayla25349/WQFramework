@@ -28,7 +28,8 @@ WQFramework is an ios develop framework.
   s.source           = { :git => 'https://github.com/jayla25349/WQFramework.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '8.0'
+    s.pod_target_xcconfig    = { 'OTHER_LDFLAGS' => '-lObjC' }
 
   s.source_files = 'WQFramework/Classes/**/*'
   # s.public_header_files = 'Pod/Classes/**/*.h'
