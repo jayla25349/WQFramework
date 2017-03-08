@@ -9,6 +9,8 @@
 #import "WQNetworkManager.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <YYCategories/YYCategories.h>
+#import "NSString+WQ.h"
+#import "WQDebugAlert.h"
 
 extern DDLogLevel const ddLogLevel;
 

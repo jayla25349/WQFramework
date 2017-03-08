@@ -36,9 +36,7 @@ WQFramework is an ios develop framework.
   #   'WQFramework' => ['WQFramework/Assets/*.png']
   # }
 
-  s.prefix_header_file = 'WQFramework/Classes/WQFramework.h'
-  s.frameworks = 'UIKit', 'Foundation'
-
+s.frameworks = 'UIKit', 'Foundation'
 s.dependency 'CocoaLumberjack'
 s.dependency 'AFNetworking'
 s.dependency 'YYCategories'

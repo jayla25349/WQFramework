@@ -8,6 +8,8 @@
 
 #import "UIViewController+WQTheme.h"
 
+extern NSNotificationName const WQThemeChangeNotification;
+
 @implementation UIViewController (WQTheme)
 
 - (void)observeThemeChange {

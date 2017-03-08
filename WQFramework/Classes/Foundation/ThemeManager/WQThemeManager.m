@@ -7,6 +7,7 @@
 //
 
 #import "WQThemeManager.h"
+#import "WQAppEngine+WQConfig.h"
 
 #define USERINFO_THEME_TYPE         @"USERINFO_THEME_TYPE"
 NSNotificationName const WQThemeChangeNotification = @"WQThemeChangeNotification";

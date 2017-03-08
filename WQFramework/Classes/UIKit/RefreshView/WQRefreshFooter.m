@@ -8,6 +8,8 @@
 
 #import "WQRefreshFooter.h"
 #import "UILabel+WQConfig.h"
+#import "UIView+WQTheme.h"
+#import "WQAppEngine.h"
 
 @interface WQRefreshFooter ()
 @property (strong, nonatomic) UILabel *stateLabel;

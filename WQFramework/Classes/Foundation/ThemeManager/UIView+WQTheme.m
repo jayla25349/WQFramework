@@ -7,6 +7,9 @@
 //
 
 #import "UIView+WQTheme.h"
+#import "WQAppEngine+WQConfig.h"
+
+extern NSNotificationName const WQThemeChangeNotification;
 
 @implementation UIView (WQTheme)
 

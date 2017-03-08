@@ -19,7 +19,6 @@
     "ios": "8.0"
   },
   "source_files": "WQFramework/Classes/**/*",
-  "prefix_header_file": "WQFramework/Classes/WQFramework.h",
   "frameworks": [
     "UIKit",
     "Foundation"

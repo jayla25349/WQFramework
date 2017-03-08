@@ -7,6 +7,7 @@
 //
 
 #import "WQNetworkUtil.h"
+#import "WQAppEngine.h"
 
 static NSString * const kAFCharactersToBeEscapedInQueryString = @":/?&=;+!@#$()',*";
 
@@ -102,11 +103,11 @@ NSString * WQQueryStringFromParametersWithEncoding(NSDictionary *parameters, NSS
 //请求参数
 + (NSDictionary *)requestParamsWithApi:(NSString *)api params:(NSDictionary *)params {
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
-    [tempDic setObject:@"ios" forField:@"platform"];
-    [tempDic setObject:@"v1" forField:@"apiVersion"];
-    [tempDic setObject:api forField:@"api"];
-    [tempDic setObject:APPENGINE.userManager.userId forField:@"userId"];
-    [tempDic setObject:APPENGINE.userManager.userToken forField:@"userToken"];
+    [tempDic setValue:@"ios" forKey:@"platform"];
+    [tempDic setValue:@"v1" forKey:@"apiVersion"];
+    [tempDic setValue:api forKey:@"api"];
+    [tempDic setValue:APPENGINE.userManager.userId forKey:@"userId"];
+    [tempDic setValue:APPENGINE.userManager.userToken forKey:@"userToken"];
     if ([params isKindOfClass:[NSDictionary class]]) {
         [tempDic addEntriesFromDictionary:params];
     }

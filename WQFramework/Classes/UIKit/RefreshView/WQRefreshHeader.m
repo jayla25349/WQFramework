@@ -8,6 +8,7 @@
 
 #import "WQRefreshHeader.h"
 #import "UILabel+WQConfig.h"
+#import "UIView+WQTheme.h"
 
 @interface WQRefreshHeader()
 @property (strong, nonatomic) UIImageView *loadingView;

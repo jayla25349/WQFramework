@@ -8,6 +8,7 @@
 
 #import "UITextField+WQConfig.h"
 #import <objc/runtime.h>
+#import "WQAppEngine+WQConfig.h"
 
 @implementation UITextField (WQConfig)
 

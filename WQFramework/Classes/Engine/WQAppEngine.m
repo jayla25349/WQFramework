@@ -9,6 +9,7 @@
 #import "WQAppEngine.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <UserNotifications/UserNotifications.h>
+#import "WQUtility.h"
 
 #ifdef DEBUG
 DDLogLevel const ddLogLevel = DDLogLevelVerbose;

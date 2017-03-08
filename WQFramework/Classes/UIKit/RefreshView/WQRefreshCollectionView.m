@@ -9,9 +9,11 @@
 #import "WQRefreshCollectionView.h"
 #import <YYCategories/YYCategories.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <AFNetworking/AFNetworking.h>
 #import "WQRefreshHeader.h"
 #import "WQRefreshFooter.h"
 #import "UIView+WQBlank.h"
+#import "NSError+WQNetwork.h"
 
 @interface WQRefreshCollectionView ()
 @property (strong, nonatomic) NSMutableArray *dataArray;
