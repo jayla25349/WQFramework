@@ -9,14 +9,6 @@
 #ifndef WQFramework_h
 #define WQFramework_h
 
-#import <CocoaLumberjack/CocoaLumberjack.h>
-#import <AFNetworking/AFNetworking.h>
-#import <YYCategories/YYCategories.h>
-#import <YYCache/YYCache.h>
-#import <SVProgressHUD/SVProgressHUD.h>
-#import <MJRefresh/MJRefresh.h>
-#import <Masonry/Masonry.h>
-
 #import "NSData+WQ.h"
 #import "NSString+WQ.h"
 
@@ -44,7 +36,5 @@
 #import "WQUserManager.h"
 #import "WQThemeManager.h"
 #import "WQNetworkManager.h"
-
-extern const DDLogLevel ddLogLevel;
 
 #endif /* WQFramework_h */

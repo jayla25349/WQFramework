@@ -7,6 +7,10 @@
 //
 
 #import "WQNetworkManager.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import <YYCategories/YYCategories.h>
+
+extern DDLogLevel const ddLogLevel;
 
 #define TASK_BEGIN \
 NSTimeInterval beginTime = [NSDate timeIntervalSinceReferenceDate];

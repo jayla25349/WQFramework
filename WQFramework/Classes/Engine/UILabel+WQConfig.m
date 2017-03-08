@@ -7,6 +7,8 @@
 //
 
 #import "UILabel+WQConfig.h"
+#import <objc/runtime.h>
+#import <YYCategories/YYCategories.h>
 
 @implementation UILabel (WQConfig)
 

@@ -7,6 +7,9 @@
 //
 
 #import "NSString+WQ.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+extern const DDLogLevel ddLogLevel;
 
 @implementation NSString (WQ)
 

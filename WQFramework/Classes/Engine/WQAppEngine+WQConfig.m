@@ -7,6 +7,8 @@
 //
 
 #import "WQAppEngine+WQConfig.h"
+#import <YYCategories/YYCategories.h>
+#import <YYCache/YYCache.h>
 
 @implementation WQAppEngine (WQConfig)
 
@@ -88,7 +90,7 @@ static NSDictionary *ucmConfigDic = nil;
         return NO;
     }
     id value = [[self appConfigDic] valueForKey:key];
-    DDAssert(value, @"%s", __FUNCTION__);
+    NSAssert(value, @"%s", __FUNCTION__);
     if ([value isKindOfClass:[NSNumber class]]) {
         return [value boolValue];
     }
@@ -102,7 +104,7 @@ static NSDictionary *ucmConfigDic = nil;
         return nil;
     }
     id value = [[self appConfigDic] valueForKey:key];
-    DDAssert(value, @"%s", __FUNCTION__);
+    NSAssert(value, @"%s", __FUNCTION__);
     if ([value isKindOfClass:[NSString class]]) {
         return value;
     }
@@ -113,7 +115,7 @@ static NSDictionary *ucmConfigDic = nil;
         return nil;
     }
     id value = [[self appConfigDic] valueForKey:key];
-    DDAssert(value, @"%s", __FUNCTION__);
+    NSAssert(value, @"%s", __FUNCTION__);
     if ([value isKindOfClass:[NSArray class]]) {
         return value;
     }
@@ -124,7 +126,7 @@ static NSDictionary *ucmConfigDic = nil;
         return nil;
     }
     id value = [[self appConfigDic] valueForKey:key];
-    DDAssert(value, @"%s", __FUNCTION__);
+    NSAssert(value, @"%s", __FUNCTION__);
     if ([value isKindOfClass:[NSDictionary class]]) {
         return value;
     }
@@ -164,7 +166,7 @@ static NSDictionary *ucmConfigDic = nil;
         return nil;
     }
     id value = [[self colorConfigDic] valueForKey:key];
-    DDAssert(value, @"%s", __FUNCTION__);
+    NSAssert(value, @"%s", __FUNCTION__);
     if ([value isKindOfClass:[NSDictionary class]]) {
         return value;
     }
@@ -207,7 +209,7 @@ static NSDictionary *ucmConfigDic = nil;
         NSDictionary *serverDict = [self dictionaryForAppKey:@"Server"];
         plantform = [serverDict objectForKey:@"default"];
     }
-    DDAssert(plantform, @"获取接口地址配置出错！");
+    NSAssert(plantform, @"获取接口地址配置出错！");
     
     if ([plantform isEqualToString:@"OL"]) {
         return PLANTFORM_TYPE_OL;
@@ -255,7 +257,7 @@ static NSDictionary *ucmConfigDic = nil;
             urlDict = serverDict[@"RD"];
         }break;
     }
-    DDAssert(urlDict, @"获取接口地址配置出错！");
+    NSAssert(urlDict, @"获取接口地址配置出错！");
     
     NSString *url = nil;
     switch (apiType) {
@@ -269,7 +271,7 @@ static NSDictionary *ucmConfigDic = nil;
             url = urlDict[@"advert"];
         }break;
     }
-    DDAssert(url, @"获取接口地址配置出错！");
+    NSAssert(url, @"获取接口地址配置出错！");
     
     return url;
 }

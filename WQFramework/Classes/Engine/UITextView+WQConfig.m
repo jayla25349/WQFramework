@@ -7,6 +7,7 @@
 //
 
 #import "UITextView+WQConfig.h"
+#import <objc/runtime.h>
 
 @implementation UITextView (WQConfig)
 

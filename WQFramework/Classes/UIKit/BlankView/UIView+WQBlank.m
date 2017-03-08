@@ -7,6 +7,8 @@
 //
 
 #import "UIView+WQBlank.h"
+#import <objc/runtime.h>
+#import <YYCategories/YYCategories.h>
 #import "WQBlankView.h"
 
 @implementation UIView (WQBlank)

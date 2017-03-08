@@ -7,8 +7,11 @@
 //
 
 #import "WQDirectory.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+extern DDLogLevel const ddLogLevel;
 
 @interface WQDirectory ()
 @property (nonatomic, strong) NSURL *dirURL;

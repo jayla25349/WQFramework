@@ -7,6 +7,7 @@
 //
 
 #import "WQBlankView.h"
+#import <Masonry/Masonry.h>
 #import "UILabel+WQConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -7,12 +7,13 @@
 //
 
 #import "WQAppEngine.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import <UserNotifications/UserNotifications.h>
 
 #ifdef DEBUG
-const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+DDLogLevel const ddLogLevel = DDLogLevelVerbose;
 #else
-const DDLogLevel ddLogLevel = DDLogLevelWarning;
+DDLogLevel const ddLogLevel = DDLogLevelWarning;
 #endif
 
 @interface WQAppEngine ()

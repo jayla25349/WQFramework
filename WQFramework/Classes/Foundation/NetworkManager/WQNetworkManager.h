@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "WQNetworkUtil.h"
 #import "NSError+WQNetwork.h"
 #import "NSMutableDictionary+WQNetwork.h"

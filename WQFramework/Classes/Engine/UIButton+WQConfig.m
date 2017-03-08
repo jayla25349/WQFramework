@@ -7,6 +7,8 @@
 //
 
 #import "UIButton+WQConfig.h"
+#import <objc/runtime.h>
+#import <YYCategories/YYCategories.h>
 #import "UIImage+WQ.h"
 
 @implementation UIButton (WQConfig)

@@ -7,6 +7,8 @@
 //
 
 #import "WQRefreshCollectionView.h"
+#import <YYCategories/YYCategories.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "WQRefreshHeader.h"
 #import "WQRefreshFooter.h"
 #import "UIView+WQBlank.h"

@@ -7,6 +7,8 @@
 //
 
 #import "WQFinderListVC.h"
+#import <Masonry/Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface WQFinderListVC ()<UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -116,7 +118,7 @@
         if ([[NSFileManager defaultManager] isDeletableFileAtPath:fileURL.path]) {
             if ([[NSFileManager defaultManager] removeItemAtURL:fileURL error:&error]) {
                 [self.fileURLs removeObject:fileURL];
-                [tableView deleteRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationLeft];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
                 [SVProgressHUD showErrorWithStatus:@"删除文件成功"];
             } else {
                 [SVProgressHUD showErrorWithStatus:error.localizedDescription];
