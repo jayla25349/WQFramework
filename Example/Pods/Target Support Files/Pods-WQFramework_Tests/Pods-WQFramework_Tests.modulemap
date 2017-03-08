@@ -1,0 +1,6 @@
+framework module Pods_WQFramework_Tests {
+  umbrella header "Pods-WQFramework_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

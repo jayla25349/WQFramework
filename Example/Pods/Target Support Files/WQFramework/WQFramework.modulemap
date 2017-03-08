@@ -1,0 +1,6 @@
+framework module WQFramework {
+  umbrella header "WQFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}
