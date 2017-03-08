@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WQFramework'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of WQFramework.'
+  s.summary          = 'ios develop framework.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+WQFramework is an ios develop framework.
                        DESC
 
   s.homepage         = 'https://github.com/jayla25349/WQFramework'
@@ -31,14 +31,14 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'WQFramework/Classes/**/*'
-  
+  # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.resource_bundles = {
   #   'WQFramework' => ['WQFramework/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.prefix_header_file = 'WQFramework/Classes/WQFramework.h'
   s.frameworks = 'UIKit', 'Foundation'
+
 s.dependency 'CocoaLumberjack'
 s.dependency 'AFNetworking'
 s.dependency 'YYCategories'

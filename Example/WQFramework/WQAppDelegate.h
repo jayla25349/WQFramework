@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface WQAppDelegate : WQAppEngine <UIApplicationDelegate>
+@interface WQAppDelegate : WQAppEngine
 
 @end
