@@ -1,8 +1,8 @@
 {
   "name": "WQFramework",
   "version": "0.1.0",
-  "summary": "A short description of WQFramework.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "ios develop framework.",
+  "description": "WQFramework is an ios develop framework.",
   "homepage": "https://github.com/jayla25349/WQFramework",
   "license": {
     "type": "MIT",

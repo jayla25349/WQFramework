@@ -15,7 +15,7 @@
 #import "UITextField+WQConfig.h"
 #import "UITextView+WQConfig.h"
 #import "UIView+WQConfig.h"
-#import "WQAppEngine+Config.h"
+#import "WQAppEngine+WQConfig.h"
 #import "WQAppEngine.h"
 #import "NSData+WQ.h"
 #import "NSString+WQ.h"
