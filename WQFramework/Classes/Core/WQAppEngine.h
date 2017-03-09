@@ -7,17 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WQConfigManager.h"
-#import "WQDirectoryManager.h"
+#import <Reachability/Reachability.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WQAppEngine : UIResponder <UIApplicationDelegate>
 @property (nonatomic, strong) UIWindow *window;
-@property (nonatomic, strong) WQConfigManager *configManager;
-@property (nonatomic, strong) WQDirectoryManager *directoryManager;
+@property (nonatomic, strong) Reachability *reachability;
 
-- (void)initModule;
 - (void)registerDelegate:(id<UIApplicationDelegate>)delegate;
 - (void)unregisterDelegate:(id<UIApplicationDelegate>)delegate;
 

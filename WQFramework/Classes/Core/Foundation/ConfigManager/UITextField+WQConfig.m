@@ -7,15 +7,15 @@
 //
 
 #import "UITextField+WQConfig.h"
+#import "WQConfigManager.h"
 #import <objc/runtime.h>
-#import "WQAppEngine+WQConfig.h"
 
 @implementation UITextField (WQConfig)
 
 static const char *__configText__ = "__configText__";
 - (void)setConfigText:(NSString *)configText{
     objc_setAssociatedObject(self, __configText__, configText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.textColor = [WQAppEngine colorForColorKey:configText];
+    self.textColor = APPCONFIG.colorConfig.color(configText);
 }
 - (NSString *)configText {
     return objc_getAssociatedObject(self, __configText__);

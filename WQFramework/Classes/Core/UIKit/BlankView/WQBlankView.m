@@ -7,9 +7,9 @@
 //
 
 #import "WQBlankView.h"
+#import "WQThemeManager.h"
 #import <Masonry/Masonry.h>
 #import "UILabel+WQConfig.h"
-#import "UIView+WQTheme.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,13 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation WQBlankView
 
-- (void)dealloc {
-    [self unObserveThemeChange];
-}
-
-- (instancetype)init {
-    if (self = [super init]) {
-        [self observeThemeChange];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [APPTHEME addThemeObserver:self selector:@selector(themeChangeAction)];
     }
     return self;
 }

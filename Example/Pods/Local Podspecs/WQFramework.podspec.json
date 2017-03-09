@@ -23,7 +23,7 @@
   },
   "default_subspecs": [
     "Core",
-    "Config"
+    "Network"
   ],
   "subspecs": [
     {
@@ -37,10 +37,10 @@
         "CocoaLumberjack": [
 
         ],
-        "YYCategories": [
+        "Reachability": [
 
         ],
-        "YYCache": [
+        "YYCategories": [
 
         ],
         "SVProgressHUD": [
@@ -58,23 +58,16 @@
       "name": "Network",
       "source_files": "WQFramework/Classes/Network/**/*",
       "dependencies": {
+        "CocoaLumberjack": [
+
+        ],
+        "YYCategories": [
+
+        ],
         "AFNetworking": [
 
         ]
       }
-    },
-    {
-      "name": "Theme",
-      "source_files": "WQFramework/Classes/Theme/**/*",
-      "dependencies": {
-        "Config": [
-
-        ]
-      }
-    },
-    {
-      "name": "User",
-      "source_files": "WQFramework/Classes/User/**/*"
     }
   ]
 }

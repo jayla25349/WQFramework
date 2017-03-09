@@ -9,11 +9,10 @@
 #import "WQRefreshTableView.h"
 #import <YYCategories/YYCategories.h>
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <AFNetworking/AFNetworking.h>
+#import "WQAppEngine.h"
 #import "WQRefreshHeader.h"
 #import "WQRefreshFooter.h"
 #import "UIView+WQBlank.h"
-#import "NSError+WQNetwork.h"
 
 @interface WQRefreshTableView ()
 @property (strong, nonatomic) NSMutableArray *dataArray;
@@ -24,27 +23,23 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        [self awakeFromNib];
+        [self initView];
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self awakeFromNib];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initView];
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
-    if (self = [super initWithFrame:frame style:style]) {
-        [self awakeFromNib];
-    }
-    return self;
-}
+/**********************************************************************/
+#pragma mark - Private
+/**********************************************************************/
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)initView {
     self.pageIndex = 0;
     self.allowShowMore = YES;
     self.allowShowBlank = YES;
@@ -125,9 +120,9 @@
             if (self.allowShowBlank && self.dataArray.count==0) {
                 self.mj_footer.hidden = YES;
                 
-                if (self.allowShowNoNetworkBlank && ![AFNetworkReachabilityManager sharedManager].isReachable) {
+                if (self.allowShowNoNetworkBlank && !APPENGINE.reachability.isReachable) {
                     [self showBlankWithImage:@"no_network"
-                                       title:NET_CONNECT_ERROR
+                                       title:@"网络连接已断开"
                                      message:nil
                                       action:nil];
                 } else {
@@ -195,9 +190,9 @@
             if (self.allowShowBlank && self.dataArray.count==0) {
                 self.mj_footer.hidden = YES;
                 
-                if (self.allowShowNoNetworkBlank && ![AFNetworkReachabilityManager sharedManager].isReachable) {
+                if (self.allowShowNoNetworkBlank && !APPENGINE.reachability.isReachable) {
                     [self showBlankWithImage:@"no_network"
-                                       title:NET_CONNECT_ERROR
+                                       title:@"网络连接已断开"
                                      message:nil
                                       action:nil];
                 } else {

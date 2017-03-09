@@ -9,11 +9,10 @@
 #import "WQRefreshCollectionView.h"
 #import <YYCategories/YYCategories.h>
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <AFNetworking/AFNetworking.h>
+#import "WQAppEngine.h"
 #import "WQRefreshHeader.h"
 #import "WQRefreshFooter.h"
 #import "UIView+WQBlank.h"
-#import "NSError+WQNetwork.h"
 
 @interface WQRefreshCollectionView ()
 @property (strong, nonatomic) NSMutableArray *dataArray;
@@ -23,31 +22,24 @@
 @implementation WQRefreshCollectionView
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
-        [self awakeFromNib];
+    if (self = [super init]) {
+        [self initView];
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self awakeFromNib];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initView];
     }
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
-    self = [super initWithFrame:frame collectionViewLayout:layout];
-    if (self) {
-        [self awakeFromNib];
-    }
-    return self;
-}
+/**********************************************************************/
+#pragma mark - Private
+/**********************************************************************/
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)initView {
     self.pageIndex = 0;
     self.allowShowMore = YES;
     self.allowShowBlank = YES;
@@ -127,9 +119,9 @@
             if (self.allowShowBlank && self.dataArray.count==0) {
                 self.mj_footer.hidden = YES;
                 
-                if (self.allowShowNoNetworkBlank && ![AFNetworkReachabilityManager sharedManager].isReachable) {
+                if (self.allowShowNoNetworkBlank && !APPENGINE.reachability.isReachable) {
                     [self showBlankWithImage:@"no_network"
-                                       title:NET_CONNECT_ERROR
+                                       title:@"网络连接已断开"
                                      message:nil
                                       action:nil];
                 } else {
@@ -197,9 +189,9 @@
             if (self.allowShowBlank && self.dataArray.count==0) {
                 self.mj_footer.hidden = YES;
                 
-                if (self.allowShowNoNetworkBlank && ![AFNetworkReachabilityManager sharedManager].isReachable) {
+                if (self.allowShowNoNetworkBlank && !APPENGINE.reachability.isReachable) {
                     [self showBlankWithImage:@"no_network"
-                                       title:NET_CONNECT_ERROR
+                                       title:@"网络连接已断开"
                                      message:nil
                                       action:nil];
                 } else {

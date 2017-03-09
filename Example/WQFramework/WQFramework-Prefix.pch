@@ -14,5 +14,6 @@
     @import UIKit;
     @import Foundation;
 
-#import "WQFramework.h"
+#import "WQCore.h"
+#import "WQNetwork.h"
 #endif

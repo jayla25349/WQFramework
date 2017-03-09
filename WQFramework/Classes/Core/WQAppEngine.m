@@ -10,11 +10,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <UserNotifications/UserNotifications.h>
 
-#ifdef DEBUG
-DDLogLevel const ddLogLevel = DDLogLevelVerbose;
-#else
-DDLogLevel const ddLogLevel = DDLogLevelWarning;
-#endif
+DDLogLevel const ddLogLevel = DDLogLevelAll;
 
 @interface WQAppEngine ()
 @property (nonatomic, strong) NSMutableArray<id<UIApplicationDelegate>> *delegates;
@@ -29,6 +25,7 @@ DDLogLevel const ddLogLevel = DDLogLevelWarning;
 - (instancetype)init {
     if (self = [super init]) {
         self.delegates = [NSMutableArray new];
+        self.reachability = [Reachability reachabilityWithHostName:@"http://www.baidu.com"];
         
         //控制台日志
         [DDLog addLogger:[DDTTYLogger sharedInstance]];
@@ -45,13 +42,6 @@ DDLogLevel const ddLogLevel = DDLogLevelWarning;
 /**********************************************************************/
 #pragma mark - Public
 /**********************************************************************/
-
-- (void)initModule {
-    WQConfigManager *configManager = [[WQConfigManager alloc] init];
-    self.configManager = configManager;
-    WQDirectoryManager *directoryManager = [[WQDirectoryManager alloc] init];
-    self.directoryManager = directoryManager;
-}
 
 - (void)registerDelegate:(id<UIApplicationDelegate>)delegate {
     if (!delegate) {
@@ -78,8 +68,6 @@ DDLogLevel const ddLogLevel = DDLogLevelWarning;
 /**********************************************************************/
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    [self initModule];
-    
     __block BOOL flag = NO;
     [self.delegates enumerateObjectsUsingBlock:^(id<UIApplicationDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         SEL sel = @selector(application:didFinishLaunchingWithOptions:);

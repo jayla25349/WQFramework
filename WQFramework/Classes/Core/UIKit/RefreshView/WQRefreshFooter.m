@@ -8,8 +8,7 @@
 
 #import "WQRefreshFooter.h"
 #import "UILabel+WQConfig.h"
-#import "UIView+WQTheme.h"
-#import "WQAppEngine.h"
+#import "WQThemeManager.h"
 
 @interface WQRefreshFooter ()
 @property (strong, nonatomic) UILabel *stateLabel;
@@ -17,10 +16,6 @@
 @end
 
 @implementation WQRefreshFooter
-
-- (void)dealloc{
-    [self unObserveThemeChange];
-}
 
 - (instancetype)init {
     self = [super init];
@@ -38,7 +33,7 @@
 - (void)themeChangeAction{
     self.stateLabel.configText = @"T2";
     
-    if ([APPENGINE.themeManager themeType] == ThemeType_Night) {
+    if (APPTHEME.themeType == ThemeType_Night) {
         self.loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
     }else{
         self.loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
@@ -69,7 +64,7 @@
     }
     
     [self themeChangeAction];
-    [self observeThemeChange];
+    [APPTHEME addThemeObserver:self selector:@selector(themeChangeAction)];
 }
 
 - (void)placeSubviews {

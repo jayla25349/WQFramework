@@ -23,15 +23,15 @@ WQFramework is an ios develop framework.
   s.ios.deployment_target = '8.0'
   s.pod_target_xcconfig    = { 'OTHER_LDFLAGS' => '-lObjC' }
   
-  s.default_subspecs = 'Core', 'Config'
+  s.default_subspecs = 'Core', 'Network'
   
   s.subspec 'Core' do |core|
       core.source_files = 'WQFramework/Classes/Core/**/*'
       core.frameworks = 'UIKit', 'Foundation'
       
       core.dependency 'CocoaLumberjack'
+      core.dependency 'Reachability'
       core.dependency 'YYCategories'
-      core.dependency 'YYCache'
       
       core.dependency 'SVProgressHUD'
       core.dependency 'MJRefresh'
@@ -41,27 +41,8 @@ WQFramework is an ios develop framework.
   s.subspec 'Network' do |network|
       network.source_files = 'WQFramework/Classes/Network/**/*'
       
+      network.dependency 'CocoaLumberjack'
+      network.dependency 'YYCategories'
       network.dependency 'AFNetworking'
-  end
-  
-#  s.subspec 'Share' do |share|
-#      share.source_files = 'WQFramework/Classes/Share/**/*'
-#      
-#      share.dependency 'ShareSDK3'
-#      share.dependency 'ShareSDK3/ShareSDK'
-#      share.dependency 'ShareSDK3/ShareSDKPlatforms/QQ'
-#      share.dependency 'ShareSDK3/ShareSDKPlatforms/WeChat'
-#      share.dependency 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
-#      share.dependency 'MOBFoundation'
-#  end
-  
-  s.subspec 'Theme' do |theme|
-      theme.source_files = 'WQFramework/Classes/Theme/**/*'
-      
-      theme.dependency 'Config'
-  end
-  
-  s.subspec 'User' do |user|
-      user.source_files = 'WQFramework/Classes/User/**/*'
   end
 end

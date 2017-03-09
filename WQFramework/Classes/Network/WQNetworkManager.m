@@ -9,10 +9,12 @@
 #import "WQNetworkManager.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <YYCategories/YYCategories.h>
-#import "NSString+WQ.h"
-#import "WQDebugAlert.h"
 
-extern DDLogLevel const ddLogLevel;
+#ifdef DEBUG
+static DDLogLevel const ddLogLevel = DDLogLevelAll;
+#else
+static DDLogLevel const ddLogLevel = DDLogLevelError;
+#endif
 
 #define TASK_BEGIN \
 NSTimeInterval beginTime = [NSDate timeIntervalSinceReferenceDate];
@@ -194,7 +196,6 @@ DDLogInfo(@"******************************请求完成(%lu)*********************
                 success(task, responseObject);
             }
         } else {
-            ErrorAlert([[NSString stringWithFormat:@"%@", responseObject] replaceUnicode]);
             if (failure) {
                 NSMutableDictionary *userInfo = [responseObject mutableCopy];
                 [userInfo setObject:responseObject[@"message"]?:NET_REQUEST_ERROR forKey:NSLocalizedDescriptionKey];
@@ -203,7 +204,6 @@ DDLogInfo(@"******************************请求完成(%lu)*********************
             }
         }
     } else {
-        ErrorAlert([[NSString stringWithFormat:@"%@", responseObject] replaceUnicode]);
         if (failure) {
             NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NET_SERVER_ERROR};
             NSError *error = [NSError errorWithDomain:BussinessErrorDoman code:-1 userInfo:userInfo];
@@ -214,7 +214,6 @@ DDLogInfo(@"******************************请求完成(%lu)*********************
 
 - (void)handleFailure:(NSURLSessionDataTask *)task error:(NSError *)error
               failure:(void (^)(NSURLSessionDataTask * _Nullable task, id _Nullable responseObject, NSError *error))failure {
-    ErrorAlert(@"%@", error);
     if (failure){
         NSError *tempError = nil;
         if ([error.domain isEqualToString:NSURLErrorDomain] && error.code == NSURLErrorNotConnectedToInternet) {

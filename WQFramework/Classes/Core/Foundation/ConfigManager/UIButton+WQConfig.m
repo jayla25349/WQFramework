@@ -7,10 +7,9 @@
 //
 
 #import "UIButton+WQConfig.h"
-#import <objc/runtime.h>
-#import <YYCategories/YYCategories.h>
+#import "WQConfigManager.h"
 #import "UIImage+WQ.h"
-#import "WQAppEngine+WQConfig.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (WQConfig)
 
@@ -24,9 +23,9 @@
             NSString *border = colorDic[@"border"];
             NSString *text = colorDic[@"text"];
             
-            UIColor *backgroundColor = [UIColor colorWithHexString:background];
-            UIColor *borderColor = [UIColor colorWithHexString:border];
-            UIColor *textColor = [UIColor colorWithHexString:text];
+            UIColor *backgroundColor = APPCONFIG.colorConfig.color(background);
+            UIColor *borderColor = APPCONFIG.colorConfig.color(border);
+            UIColor *textColor = APPCONFIG.colorConfig.color(text);
             UIImage *image = [UIImage imageWithCornerRadius:corner
                                                 borderWidth:borderColor?0.5f:0.0f
                                                 borderColor:borderColor
@@ -41,7 +40,7 @@
     };
     
     //配置样式
-    NSDictionary *styleDic = [WQAppEngine dictionaryForColorKey:configStyle];
+    NSDictionary *styleDic = APPCONFIG.colorConfig.dictionary(configStyle);
     if (styleDic) {
         ConfigColorBlock(styleDic[@"normal"], UIControlStateNormal);
         ConfigColorBlock(styleDic[@"highlighted"], UIControlStateHighlighted);
@@ -64,7 +63,7 @@ static const char *__configStyle__ = "__configStyle__";
 static const char *__configNText__ = "__configNText__";
 - (void)setConfigNText:(NSString *)configNText{
     objc_setAssociatedObject(self, __configNText__, configNText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setTitleColor:[WQAppEngine colorForColorKey:configNText] forState:UIControlStateNormal];
+    [self setTitleColor:APPCONFIG.colorConfig.color(configNText) forState:UIControlStateNormal];
 }
 - (NSString *)configNText {
     return objc_getAssociatedObject(self, __configNText__);
@@ -73,7 +72,7 @@ static const char *__configNText__ = "__configNText__";
 static const char *__configHText__ = "__configHText__";
 - (void)setConfigHText:(NSString *)configHText{
     objc_setAssociatedObject(self, __configHText__, configHText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setTitleColor:[WQAppEngine colorForColorKey:configHText] forState:UIControlStateHighlighted];
+    [self setTitleColor:APPCONFIG.colorConfig.color(configHText) forState:UIControlStateHighlighted];
 }
 - (NSString *)configHText {
     return objc_getAssociatedObject(self, __configHText__);
@@ -82,7 +81,7 @@ static const char *__configHText__ = "__configHText__";
 static const char *__configSText__ = "__configSText__";
 - (void)setConfigSText:(NSString *)configSText{
     objc_setAssociatedObject(self, __configSText__, configSText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setTitleColor:[WQAppEngine colorForColorKey:configSText] forState:UIControlStateSelected];
+    [self setTitleColor:APPCONFIG.colorConfig.color(configSText) forState:UIControlStateSelected];
 }
 - (NSString *)configSText {
     return objc_getAssociatedObject(self, __configSText__);
@@ -91,7 +90,7 @@ static const char *__configSText__ = "__configSText__";
 static const char *__configDText__ = "__configDText__";
 - (void)setConfigDText:(NSString *)configDText{
     objc_setAssociatedObject(self, __configDText__, configDText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self setTitleColor:[WQAppEngine colorForColorKey:configDText] forState:UIControlStateDisabled];
+    [self setTitleColor:APPCONFIG.colorConfig.color(configDText) forState:UIControlStateDisabled];
 }
 - (NSString *)configDText {
     return objc_getAssociatedObject(self, __configDText__);

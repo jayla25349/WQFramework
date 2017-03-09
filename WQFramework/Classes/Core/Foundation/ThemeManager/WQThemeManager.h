@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, ThemeType) {
     ThemeType_Defalt,
     ThemeType_Night,
 };
 
-extern NSNotificationName const WQThemeChangeNotification;
-
-@interface WQThemeManager : NSObject<UIApplicationDelegate>
+@interface WQThemeManager : NSObject
 @property (nonatomic, assign, readonly) ThemeType themeType;
 
-- (void)switchToTheme:(ThemeType)themeType;
++ (instancetype)shareInstance;
+- (void)addThemeObserver:(id)observer selector:(SEL)selector;
+- (void)switchTheme:(ThemeType)themeType;
 @end
+
+#define APPTHEME  [WQThemeManager shareInstance]
+
+NS_ASSUME_NONNULL_END

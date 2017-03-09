@@ -7,15 +7,15 @@
 //
 
 #import "UILabel+WQConfig.h"
+#import "WQConfigManager.h"
 #import <objc/runtime.h>
-#import <YYCategories/YYCategories.h>
 
 @implementation UILabel (WQConfig)
 
 static const char *__configText__ = "__configText__";
 - (void)setConfigText:(NSString *)configText{
     objc_setAssociatedObject(self, "__configText__", configText, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.textColor = [UIColor colorWithHexString:configText];
+    self.textColor = APPCONFIG.colorConfig.color(configText);
 }
 - (NSString *)configText {
     return objc_getAssociatedObject(self, __configText__);

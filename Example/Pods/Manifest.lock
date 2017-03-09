@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - CocoaLumberjack (3.1.0):
     - CocoaLumberjack/Default (= 3.1.0)
     - CocoaLumberjack/Extensions (= 3.1.0)
@@ -7,35 +22,43 @@ PODS:
     - CocoaLumberjack/Default
   - Masonry (1.0.2)
   - MJRefresh (3.1.12)
+  - Reachability (3.2)
   - SVProgressHUD (2.1.2)
+  - WQFramework (0.1.0):
+    - WQFramework/Core (= 0.1.0)
+    - WQFramework/Network (= 0.1.0)
   - WQFramework/Core (0.1.0):
     - CocoaLumberjack
     - Masonry
     - MJRefresh
+    - Reachability
     - SVProgressHUD
-    - YYCache
     - YYCategories
-  - YYCache (1.0.4)
+  - WQFramework/Network (0.1.0):
+    - AFNetworking
+    - CocoaLumberjack
+    - YYCategories
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
-  - WQFramework/Core (from `../`)
+  - WQFramework (from `../`)
 
 EXTERNAL SOURCES:
   WQFramework:
     :path: "../"
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CocoaLumberjack: 8311463ddf9ee86a06ef92a071dd656c89244500
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  WQFramework: 71a2d5683d235dc9c3c11a1a1ad8f091ae3e2a67
-  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  WQFramework: dd5a3714a5ff1f115620bcf96aa9b8abecfc56ea
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 9930993f73cee6180831a57fe1ad91ee87abb6fc
+PODFILE CHECKSUM: 5d6fd330c64784569c24a8d05ae01fc418b51c41
 
 COCOAPODS: 1.2.0

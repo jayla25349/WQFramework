@@ -7,8 +7,8 @@
 //
 
 #import "WQRefreshHeader.h"
+#import "WQThemeManager.h"
 #import "UILabel+WQConfig.h"
-#import "UIView+WQTheme.h"
 
 @interface WQRefreshHeader()
 @property (strong, nonatomic) UIImageView *loadingView;
@@ -19,10 +19,6 @@
 @end
 
 @implementation WQRefreshHeader
-
-- (void)dealloc{
-    [self unObserveThemeChange];
-}
 
 - (instancetype)init {
     self = [super init];
@@ -87,7 +83,7 @@
     }
     
     [self themeChangeAction];
-    [self observeThemeChange];
+    [APPTHEME addThemeObserver:self selector:@selector(themeChangeAction)];
 }
 
 - (void)placeSubviews {

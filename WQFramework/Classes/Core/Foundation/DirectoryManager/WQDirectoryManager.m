@@ -8,6 +8,8 @@
 
 #import "WQDirectoryManager.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface WQDirectoryManager ()
 @property (nonatomic, strong) WQDirectory *dataDir;
 @property (nonatomic, strong) WQDirectory *videoDir;
@@ -30,4 +32,15 @@
     return self;
 }
 
++ (instancetype)shareInstance {
+    static WQDirectoryManager *manager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[WQDirectoryManager alloc] init];
+    });
+    return manager;
+}
+
 @end
+
+NS_ASSUME_NONNULL_END
