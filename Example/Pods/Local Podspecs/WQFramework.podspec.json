@@ -21,32 +21,60 @@
   "pod_target_xcconfig": {
     "OTHER_LDFLAGS": "-lObjC"
   },
-  "source_files": "WQFramework/Classes/**/*",
-  "frameworks": [
-    "UIKit",
-    "Foundation"
+  "default_subspecs": [
+    "Core",
+    "Config"
   ],
-  "dependencies": {
-    "CocoaLumberjack": [
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "WQFramework/Classes/Core/**/*",
+      "frameworks": [
+        "UIKit",
+        "Foundation"
+      ],
+      "dependencies": {
+        "CocoaLumberjack": [
 
-    ],
-    "AFNetworking": [
+        ],
+        "YYCategories": [
 
-    ],
-    "YYCategories": [
+        ],
+        "YYCache": [
 
-    ],
-    "YYCache": [
+        ],
+        "SVProgressHUD": [
 
-    ],
-    "SVProgressHUD": [
+        ],
+        "MJRefresh": [
 
-    ],
-    "MJRefresh": [
+        ],
+        "Masonry": [
 
-    ],
-    "Masonry": [
+        ]
+      }
+    },
+    {
+      "name": "Network",
+      "source_files": "WQFramework/Classes/Network/**/*",
+      "dependencies": {
+        "AFNetworking": [
 
-    ]
-  }
+        ]
+      }
+    },
+    {
+      "name": "Theme",
+      "source_files": "WQFramework/Classes/Theme/**/*",
+      "dependencies": {
+        "Config": [
+
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "source_files": "WQFramework/Classes/User/**/*"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'WQFramework_Example' do
-  pod 'WQFramework', :path => '../'
+    pod 'WQFramework/Core', :path => '../'
 
   target 'WQFramework_Tests' do
     inherit! :search_paths
