@@ -9,7 +9,11 @@
 #import "WQDirectory.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-extern DDLogLevel const ddLogLevel;
+#ifdef DEBUG
+static DDLogLevel const ddLogLevel = DDLogLevelAll;
+#else
+static DDLogLevel const ddLogLevel = DDLogLevelError;
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -9,7 +9,11 @@
 #import "NSString+WQ.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
-extern const DDLogLevel ddLogLevel;
+#ifdef DEBUG
+static DDLogLevel const ddLogLevel = DDLogLevelAll;
+#else
+static DDLogLevel const ddLogLevel = DDLogLevelError;
+#endif
 
 @implementation NSString (WQ)
 

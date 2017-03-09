@@ -10,7 +10,11 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <UserNotifications/UserNotifications.h>
 
-DDLogLevel const ddLogLevel = DDLogLevelAll;
+#ifdef DEBUG
+static DDLogLevel const ddLogLevel = DDLogLevelAll;
+#else
+static DDLogLevel const ddLogLevel = DDLogLevelError;
+#endif
 
 @interface WQAppEngine ()
 @property (nonatomic, strong) NSMutableArray<id<UIApplicationDelegate>> *delegates;

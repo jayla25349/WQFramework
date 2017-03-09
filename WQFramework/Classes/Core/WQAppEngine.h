@@ -20,6 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+#define APPENGINE   ((WQAppEngine *)[[UIApplication sharedApplication] delegate])
 
-#define APPENGINE       ((WQAppEngine *)[[UIApplication sharedApplication] delegate])
+NS_ASSUME_NONNULL_END
