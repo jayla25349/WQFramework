@@ -7,7 +7,6 @@
 //
 
 @import UIKit;
-#import "WQAppEngine.h"
 
 @interface WQAppDelegate : WQAppEngine
 
