@@ -21,18 +21,14 @@
   "pod_target_xcconfig": {
     "OTHER_LDFLAGS": "-lObjC"
   },
-  "default_subspecs": [
-    "Core",
-    "Network"
+  "frameworks": [
+    "UIKit",
+    "Foundation"
   ],
   "subspecs": [
     {
       "name": "Core",
       "source_files": "WQFramework/Classes/Core/**/*",
-      "frameworks": [
-        "UIKit",
-        "Foundation"
-      ],
       "dependencies": {
         "CocoaLumberjack": [
 
@@ -42,32 +38,92 @@
         ],
         "YYCategories": [
 
-        ],
-        "SVProgressHUD": [
+        ]
+      }
+    },
+    {
+      "name": "Foundation",
+      "dependencies": {
+        "WQFramework/Core": [
+
+        ]
+      },
+      "subspecs": [
+        {
+          "name": "Directory",
+          "source_files": "WQFramework/Classes/Foundation/Directory/**/*"
+        },
+        {
+          "name": "Config",
+          "source_files": "WQFramework/Classes/Foundation/Config/**/*"
+        },
+        {
+          "name": "Theme",
+          "source_files": "WQFramework/Classes/Foundation/Theme/**/*",
+          "dependencies": {
+            "WQFramework/Foundation/Config": [
+
+            ]
+          }
+        },
+        {
+          "name": "Network",
+          "source_files": "WQFramework/Classes/Foundation/Network/**/*",
+          "dependencies": {
+            "AFNetworking": [
+
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "UIKit",
+      "dependencies": {
+        "WQFramework/Core": [
 
         ],
-        "MJRefresh": [
+        "WQFramework/Foundation/Theme": [
 
         ],
         "Masonry": [
 
         ]
-      }
-    },
-    {
-      "name": "Network",
-      "source_files": "WQFramework/Classes/Network/**/*",
-      "dependencies": {
-        "CocoaLumberjack": [
+      },
+      "subspecs": [
+        {
+          "name": "BlankView",
+          "source_files": "WQFramework/Classes/UIKit/BlankView/**/*"
+        },
+        {
+          "name": "RefreshView",
+          "source_files": "WQFramework/Classes/UIKit/RefreshView/**/*",
+          "dependencies": {
+            "WQFramework/UIKit/BlankView": [
 
-        ],
-        "YYCategories": [
+            ],
+            "SVProgressHUD": [
 
-        ],
-        "AFNetworking": [
+            ],
+            "MJRefresh": [
 
-        ]
-      }
+            ]
+          }
+        },
+        {
+          "name": "FinderListVC",
+          "source_files": "WQFramework/Classes/UIKit/FinderListVC/**/*",
+          "dependencies": {
+            "SVProgressHUD": [
+
+            ]
+          }
+        },
+        {
+          "name": "PlistListVC",
+          "source_files": "WQFramework/Classes/UIKit/PlistListVC/**/*"
+        }
+      ]
     }
   ]
 }

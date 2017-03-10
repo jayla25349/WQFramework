@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* WQAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* WQAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* WQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* WQViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -24,6 +23,14 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		EBD0AFB97348C89CFEAE9871 /* Pods_WQFramework_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F4469899D450AB4E2F32CC /* Pods_WQFramework_Tests.framework */; };
+		EC3C29881E726BC10030B065 /* WQHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C29871E726BC10030B065 /* WQHomeVC.m */; };
+		EC3C298B1E726BCB0030B065 /* WQMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C298A1E726BCB0030B065 /* WQMessageVC.m */; };
+		EC3C298E1E726BD40030B065 /* WQUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C298D1E726BD40030B065 /* WQUserVC.m */; };
+		EC3C29921E726BFA0030B065 /* WQSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C29911E726BFA0030B065 /* WQSettingVC.m */; };
+		EC3C29961E726C830030B065 /* WQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C29951E726C830030B065 /* WQViewController.m */; };
+		EC3C29991E726C8D0030B065 /* WQTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C29981E726C8D0030B065 /* WQTableViewController.m */; };
+		EC3C299C1E726CA80030B065 /* WQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C299B1E726CA80030B065 /* WQNavigationController.m */; };
+		EC3C299F1E726D7E0030B065 /* WQTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3C299E1E726D7E0030B065 /* WQTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +57,6 @@
 		6003F59B195388D20070C39A /* WQFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WQFramework-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* WQAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* WQAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* WQViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* WQViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* WQFramework_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WQFramework_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,6 +71,22 @@
 		C20968B82D87DDD88E75403D /* Pods-WQFramework_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQFramework_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WQFramework_Tests/Pods-WQFramework_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCD9842A660545BEEB0C5777 /* Pods-WQFramework_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WQFramework_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-WQFramework_Example/Pods-WQFramework_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DDACAEA1B6C295A291C56E80 /* Pods_WQFramework_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WQFramework_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC3C29861E726BC10030B065 /* WQHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQHomeVC.h; sourceTree = "<group>"; };
+		EC3C29871E726BC10030B065 /* WQHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQHomeVC.m; sourceTree = "<group>"; };
+		EC3C29891E726BCB0030B065 /* WQMessageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQMessageVC.h; sourceTree = "<group>"; };
+		EC3C298A1E726BCB0030B065 /* WQMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQMessageVC.m; sourceTree = "<group>"; };
+		EC3C298C1E726BD40030B065 /* WQUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQUserVC.h; sourceTree = "<group>"; };
+		EC3C298D1E726BD40030B065 /* WQUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQUserVC.m; sourceTree = "<group>"; };
+		EC3C29901E726BFA0030B065 /* WQSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQSettingVC.h; sourceTree = "<group>"; };
+		EC3C29911E726BFA0030B065 /* WQSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQSettingVC.m; sourceTree = "<group>"; };
+		EC3C29941E726C830030B065 /* WQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQViewController.h; sourceTree = "<group>"; };
+		EC3C29951E726C830030B065 /* WQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQViewController.m; sourceTree = "<group>"; };
+		EC3C29971E726C8D0030B065 /* WQTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQTableViewController.h; sourceTree = "<group>"; };
+		EC3C29981E726C8D0030B065 /* WQTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQTableViewController.m; sourceTree = "<group>"; };
+		EC3C299A1E726CA80030B065 /* WQNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQNavigationController.h; sourceTree = "<group>"; };
+		EC3C299B1E726CA80030B065 /* WQNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQNavigationController.m; sourceTree = "<group>"; };
+		EC3C299D1E726D7E0030B065 /* WQTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQTabBarController.h; sourceTree = "<group>"; };
+		EC3C299E1E726D7E0030B065 /* WQTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQTabBarController.m; sourceTree = "<group>"; };
 		EE51FD6320B7B3AAAD545B33 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,11 +164,14 @@
 		6003F593195388D20070C39A /* Example for WQFramework */ = {
 			isa = PBXGroup;
 			children = (
+				EC3C29931E726C6B0030B065 /* Common */,
+				EC3C29831E726BB30030B065 /* Home */,
+				EC3C29841E726BB30030B065 /* Message */,
+				EC3C298F1E726BEF0030B065 /* Setting */,
+				EC3C29851E726BB30030B065 /* User */,
 				6003F59C195388D20070C39A /* WQAppDelegate.h */,
 				6003F59D195388D20070C39A /* WQAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* WQViewController.h */,
-				6003F5A6195388D20070C39A /* WQViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -194,6 +218,57 @@
 				EE51FD6320B7B3AAAD545B33 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		EC3C29831E726BB30030B065 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C29861E726BC10030B065 /* WQHomeVC.h */,
+				EC3C29871E726BC10030B065 /* WQHomeVC.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EC3C29841E726BB30030B065 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C29891E726BCB0030B065 /* WQMessageVC.h */,
+				EC3C298A1E726BCB0030B065 /* WQMessageVC.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		EC3C29851E726BB30030B065 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C298C1E726BD40030B065 /* WQUserVC.h */,
+				EC3C298D1E726BD40030B065 /* WQUserVC.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EC3C298F1E726BEF0030B065 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C29901E726BFA0030B065 /* WQSettingVC.h */,
+				EC3C29911E726BFA0030B065 /* WQSettingVC.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		EC3C29931E726C6B0030B065 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C29941E726C830030B065 /* WQViewController.h */,
+				EC3C29951E726C830030B065 /* WQViewController.m */,
+				EC3C299D1E726D7E0030B065 /* WQTabBarController.h */,
+				EC3C299E1E726D7E0030B065 /* WQTabBarController.m */,
+				EC3C29971E726C8D0030B065 /* WQTableViewController.h */,
+				EC3C29981E726C8D0030B065 /* WQTableViewController.m */,
+				EC3C299A1E726CA80030B065 /* WQNavigationController.h */,
+				EC3C299B1E726CA80030B065 /* WQNavigationController.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,9 +476,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3C29921E726BFA0030B065 /* WQSettingVC.m in Sources */,
+				EC3C29991E726C8D0030B065 /* WQTableViewController.m in Sources */,
+				EC3C29961E726C830030B065 /* WQViewController.m in Sources */,
 				6003F59E195388D20070C39A /* WQAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* WQViewController.m in Sources */,
+				EC3C298B1E726BCB0030B065 /* WQMessageVC.m in Sources */,
+				EC3C298E1E726BD40030B065 /* WQUserVC.m in Sources */,
+				EC3C299C1E726CA80030B065 /* WQNavigationController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				EC3C29881E726BC10030B065 /* WQHomeVC.m in Sources */,
+				EC3C299F1E726D7E0030B065 /* WQTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

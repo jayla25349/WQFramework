@@ -22,27 +22,61 @@ WQFramework is an ios develop framework.
 
   s.ios.deployment_target = '8.0'
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
-  
-  s.default_subspecs = 'Core', 'Network'
+  s.frameworks = 'UIKit', 'Foundation'
   
   s.subspec 'Core' do |core|
       core.source_files = 'WQFramework/Classes/Core/**/*'
-      core.frameworks = 'UIKit', 'Foundation'
       
       core.dependency 'CocoaLumberjack'
       core.dependency 'Reachability'
       core.dependency 'YYCategories'
-      
-      core.dependency 'SVProgressHUD'
-      core.dependency 'MJRefresh'
-      core.dependency 'Masonry'
   end
   
-  s.subspec 'Network' do |network|
-      network.source_files = 'WQFramework/Classes/Network/**/*'
+  s.subspec 'Foundation' do |foundation|
+      foundation.dependency 'WQFramework/Core'
       
-      network.dependency 'CocoaLumberjack'
-      network.dependency 'YYCategories'
-      network.dependency 'AFNetworking'
+      foundation.subspec 'Directory' do |directory|
+          directory.source_files = 'WQFramework/Classes/Foundation/Directory/**/*'
+      end
+      
+      foundation.subspec 'Config' do |config|
+          config.source_files = 'WQFramework/Classes/Foundation/Config/**/*'
+      end
+      
+      foundation.subspec 'Theme' do |theme|
+          theme.source_files = 'WQFramework/Classes/Foundation/Theme/**/*'
+          theme.dependency 'WQFramework/Foundation/Config'
+      end
+      
+      foundation.subspec 'Network' do |network|
+          network.source_files = 'WQFramework/Classes/Foundation/Network/**/*'
+          network.dependency 'AFNetworking'
+      end
+  end
+  
+  s.subspec 'UIKit' do |ui|
+      ui.dependency 'WQFramework/Core'
+      ui.dependency 'WQFramework/Foundation/Theme'
+      ui.dependency 'Masonry'
+      
+      ui.subspec 'BlankView' do |blank|
+          blank.source_files = 'WQFramework/Classes/UIKit/BlankView/**/*'
+      end
+      
+      ui.subspec 'RefreshView' do |refresh|
+          refresh.source_files = 'WQFramework/Classes/UIKit/RefreshView/**/*'
+          refresh.dependency 'WQFramework/UIKit/BlankView'
+          refresh.dependency 'SVProgressHUD'
+          refresh.dependency 'MJRefresh'
+      end
+      
+      ui.subspec 'FinderListVC' do |finder|
+          finder.source_files = 'WQFramework/Classes/UIKit/FinderListVC/**/*'
+          finder.dependency 'SVProgressHUD'
+      end
+      
+      ui.subspec 'PlistListVC' do |plist|
+          plist.source_files = 'WQFramework/Classes/UIKit/PlistListVC/**/*'
+      end
   end
 end

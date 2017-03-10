@@ -11,8 +11,8 @@
 @implementation WQAppDelegate
     
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    [SVProgressHUD setMinimumDismissTimeInterval:2.0f];
+    [[WQRouter defaultRouter] registerMiddleware:[WQRouteURLVerifyMiddleware middlewareWithScheme:@"test" host:nil]];
+    [[WQRouter defaultRouter] registerMiddleware:[WQRouteURLParserMiddleware new]];
     
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
