@@ -7,19 +7,16 @@
 //
 
 #import "WQConfig.h"
-#import <YYCategories/YYCategories.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WQConfig ()
-@property (nonatomic, copy) WQConfigColorBlock color;
-@property (nonatomic, copy) WQConfigImageBlock image;
+@property (nonatomic, strong) NSDictionary *configDic;
+@property (nonatomic, copy) WQConfigBoolBlock boolean;
 @property (nonatomic, copy) WQConfigArrayBlock array;
 @property (nonatomic, copy) WQConfigNumberBlock number;
 @property (nonatomic, copy) WQConfigStringBlock string;
 @property (nonatomic, copy) WQConfigDictionaryBlock dictionary;
-
-@property (nonatomic, strong) NSDictionary *configDic;
 @end
 
 @implementation WQConfig
@@ -31,48 +28,44 @@ NS_ASSUME_NONNULL_BEGIN
         NSAssert(self.configDic, @"未读取到配置文件!");
         
         __weak typeof(self) __weakSelf = self;
-        [self setColor:^UIColor * _Nullable(NSString * _Nonnull key) {
+        self.boolean =  ^BOOL(NSString * _Nonnull key) {
+            id obj = __weakSelf.configDic[key];
+            if ([obj isKindOfClass:[NSNumber class]]) {
+                return [obj boolValue];
+            }
+            if ([obj isKindOfClass:[NSString class]]) {
+                return [obj boolValue];
+            }
+            return NO;
+        };
+        self.number =  ^NSNumber * _Nullable(NSString * _Nonnull key) {
+            id obj = __weakSelf.configDic[key];
+            if ([obj isKindOfClass:[NSNumber class]]) {
+                return obj;
+            }
+            return nil;
+        };
+        self.string = ^NSString * _Nullable(NSString * _Nonnull key) {
             id obj = __weakSelf.configDic[key];
             if ([obj isKindOfClass:[NSString class]]) {
-                return [UIColor colorWithHexString:obj];
-            }
-            if ([obj isKindOfClass:[NSNumber class]]) {
-                return [UIColor colorWithRGBA:[obj unsignedIntValue]];
-            }
-            return nil;
-        }];
-        [self setImage:^UIImage * _Nullable(NSString * _Nonnull key) {
-            UIColor *color = __weakSelf.color(key);
-            return [UIImage imageWithColor:color];
-        }];
-        [self setNumber:^NSNumber * _Nullable(NSString * _Nonnull key) {
-            id obj = __weakSelf.configDic[key];
-            if ([obj isKindOfClass:[NSNumber class]]) {
                 return obj;
             }
             return nil;
-        }];
-        [self setString:^NSString * _Nullable(NSString * _Nonnull key) {
-            id obj = __weakSelf.configDic[key];
-            if ([obj isKindOfClass:[NSNumber class]]) {
-                return obj;
-            }
-            return nil;
-        }];
-        [self setArray:^NSArray * _Nullable(NSString * _Nonnull key) {
+        };
+        self.array = ^NSArray * _Nullable(NSString * _Nonnull key) {
             id obj = __weakSelf.configDic[key];
             if ([obj isKindOfClass:[NSArray class]]) {
                 return obj;
             }
             return nil;
-        }];
-        [self setDictionary:^NSDictionary * _Nullable(NSString * _Nonnull key) {
+        };
+        self.dictionary = ^NSDictionary * _Nullable(NSString * _Nonnull key) {
             id obj = __weakSelf.configDic[key];
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 return obj;
             }
             return nil;
-        }];
+        };
     }
     return self;
 }

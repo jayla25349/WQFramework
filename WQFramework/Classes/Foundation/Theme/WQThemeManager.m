@@ -51,15 +51,15 @@ NS_ASSUME_NONNULL_BEGIN
     if (!observer) {
         return;
     }
-    __block BOOL isExsit = NO;
+    __block ThemeTarget *target = nil;
     [self.targets enumerateObjectsUsingBlock:^(ThemeTarget * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (observer == obj.observer) {
-            isExsit = YES;
+            target = obj;
             *stop = YES;
         }
     }];
-    if (!isExsit) {
-        ThemeTarget *target = [[ThemeTarget alloc] init];
+    if (!target) {
+        target = [[ThemeTarget alloc] init];
         target.observer = observer;
         target.selector = selector;
         [self.targets addObject:target];
@@ -74,7 +74,11 @@ NS_ASSUME_NONNULL_BEGIN
         if (obj.observer) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [obj performSelector:obj.selector];
+            if ([obj.observer respondsToSelector:obj.selector]) {
+                [obj.observer performSelector:obj.selector];
+            } else {
+                NSAssert(NO, @"主题切换方法未实现");
+            }
 #pragma clang diagnostic pop;
         } else {
             [self.targets removeObject:obj];

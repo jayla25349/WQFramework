@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WQDirectoryManager ()
+@property (nonatomic, strong) NSURL *baseURL;
 @property (nonatomic, strong) WQDirectory *dataDir;
 @property (nonatomic, strong) WQDirectory *videoDir;
 @property (nonatomic, strong) WQDirectory *patchDir;
@@ -20,14 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation WQDirectoryManager
 
 - (instancetype)init {
-    NSString *basePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSURL *baseURL = [NSURL fileURLWithPath:basePath isDirectory:YES];
     self = [super init];
     if (self) {
-        self.dataDir = [WQDirectory dirWithBaseURL:baseURL dirName:@"data"];
-        self.videoDir = [WQDirectory dirWithBaseURL:baseURL dirName:@"video"];
-        self.patchDir = [WQDirectory dirWithBaseURL:baseURL dirName:@"patch"];
-        self.pluginDir = [WQDirectory dirWithBaseURL:baseURL dirName:@"plugin"];
+        NSString *basePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        basePath = [basePath stringByAppendingPathComponent:@"com.wq.dir"];
+        
+        self.baseURL = [NSURL fileURLWithPath:basePath isDirectory:YES];
+        self.dataDir = [WQDirectory dirWithBaseURL:self.baseURL dirName:@"data"];
+        self.videoDir = [WQDirectory dirWithBaseURL:self.baseURL dirName:@"video"];
+        self.patchDir = [WQDirectory dirWithBaseURL:self.baseURL dirName:@"patch"];
+        self.pluginDir = [WQDirectory dirWithBaseURL:self.baseURL dirName:@"plugin"];
     }
     return self;
 }

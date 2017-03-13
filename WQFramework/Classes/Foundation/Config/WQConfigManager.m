@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WQConfigManager ()
 @property (nonatomic, strong) WQConfig *appConfig;
 @property (nonatomic, strong) WQConfig *ucmConfig;
-@property (nonatomic, strong) WQConfig *colorConfig;
+@property (nonatomic, strong) WQColorConfig *colorConfig;
 @end
 
 @implementation WQConfigManager
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 - (void)reloadColorConfig {
     NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"color" withExtension:@"plist"];
-    self.colorConfig = [WQConfig configWithContentsOfURL:fileURL];
+    self.colorConfig = [WQColorConfig configWithContentsOfURL:fileURL];
 }
 
 @end

@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "WQConfig.h"
+#import "WQColorConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WQConfigManager : NSObject
 @property (nonatomic, strong, readonly) WQConfig *appConfig;
 @property (nonatomic, strong, readonly) WQConfig *ucmConfig;
-@property (nonatomic, strong, readonly) WQConfig *colorConfig;
+@property (nonatomic, strong, readonly) WQColorConfig *colorConfig;
 
 + (instancetype)shareInstance;
 - (void)reloadAppConfig;
